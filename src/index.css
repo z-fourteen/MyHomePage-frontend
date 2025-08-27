@@ -1,0 +1,55 @@
+/* 全局样式 */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: sans-serif;
+  color:#111;
+  line-height:1.6;
+  /* background:rgba(220, 227, 214, 0.85)*/
+}
+a{
+  color: #13782c;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+a:hover{
+  color: yellowgreen; /* 深绿色 hover */
+}
+
+:root{
+  --container-w: 900px;
+  --accent: #13782cb3;
+  --muted: #6b7280;
+}
+
+*{
+  box-sizing:border-box
+}
+
+.container{
+  max-width:var(--container-w); 
+  margin:0 auto; 
+  padding:2rem
+}
+
+
+
+
+
+.logo{margin:0; font-size:1.25rem}
+.site-header nav a{margin-left:1rem; text-decoration:none; color:var(--muted)}
+.page-root .main{padding:2rem 0}
+
+
+.link{
+  color:green; 
+  text-decoration:none
+}
+.footer{padding:2rem 0; text-align:center; color:var(--muted)}
+
+@media (max-width:700px){
+  .hero{flex-direction:column; text-align:center}
+  .site-header .container{padding:0 1rem}
+}

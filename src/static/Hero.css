@@ -1,0 +1,32 @@
+.hero{
+    height: 100vh;
+    margin-top: 3.6rem;
+    display:flex; 
+    align-items:center;
+    max-width: 100%;
+  
+    background-image: url("../assets/sky.webp");
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+  
+  
+  .hero-text{
+    flex:1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color:rgb(34, 129, 5)
+  }
+  
+  .cta-row{
+    margin-top:1rem
+  }
+  .btn{
+    display:inline-block; 
+    padding:.5rem 1rem; 
+    border-radius:8px; 
+    text-decoration:none; 
+    background:var(--accent); 
+    color:#fff
+  }

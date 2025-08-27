@@ -1,0 +1,118 @@
+.thoughts-page {
+  display: flex;
+  position: relative;
+  margin-top: 5%;
+}
+
+.sidebar {
+  position: sticky;
+  top: 20px;
+  width: 120px;
+  background: #ffffff;
+  padding: 12px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+  margin-right: 16px;
+  height: fit-content;
+}
+
+.sidebar h3 {
+  font-size: 16px;
+  margin-bottom: 8px;
+  color: #111827;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar li {
+  padding: 6px 8px;
+  margin-bottom: 4px;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+.sidebar li:hover {
+  background: #e5e7eb;
+}
+
+.thoughts-container {
+  flex: 1;
+  padding: 24px;
+  background-color: #f9fafb;
+  min-height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+.page-title {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #111827;
+}
+
+.year-section {
+  margin-bottom: 24px;
+}
+
+.year-title {
+  font-size: 22px;
+  font-weight: bold;
+  color: #111827;
+  cursor: pointer;
+  margin-bottom: 12px;
+}
+
+.year-title:hover {
+  color: #16ba2e;
+}
+
+.thought-card {
+  background: white;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+}
+
+.thought-title {
+  font-size: 20px;
+  font-weight: 600;
+  color: #11a930;
+  cursor: pointer;
+  margin-bottom: 4px;
+}
+
+.thought-title:hover {
+  text-decoration: underline;
+}
+
+.thought-date {
+  font-size: 14px;
+  color: #6b7280;
+  margin-bottom: 8px;
+}
+
+.thought-content {
+  font-size: 16px;
+  color: #374151;
+  line-height: 1.6;
+}
+
+.read-more-btn {
+  margin-top: 10px;
+  padding: 6px 12px;
+  background-color: #0e964e;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.read-more-btn:hover {
+  background-color: #0a5803;
+}

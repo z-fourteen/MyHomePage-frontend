@@ -1,0 +1,108 @@
+/* src/static/Message.css */
+
+/* 核心容器：用于居中整个留言板内容 */
+.message-board-container {
+    display: flex;
+    flex-direction: column; /* 子元素垂直排列 */
+    align-items: center; /* 水平居中所有子元素（块级元素） */
+    width: 100%;
+    max-width: 800px; /* 限制最大宽度，随页面伸缩 */
+    margin: 40px auto; /* 垂直方向留白，水平方向自动居中 */
+    padding: 0 20px; /* 增加左右内边距，防止内容贴边 */
+    box-sizing: border-box; /* 确保 padding 不会增加宽度 */
+}
+
+/* 标题和描述 */
+.page-title {
+    color: #388e3c;
+    font-size: 2.5rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    width: 100%; /* 确保标题占据可用宽度以居中 */
+    text-align: center;
+}
+
+.page-description {
+    color: #777;
+    margin-bottom: 30px;
+    width: 100%;
+    text-align: center;
+}
+
+/* 留言列表样式 */
+.message-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 20px;
+    width: 100%;
+    max-width: 600px; /* 限制留言列表的最大宽度 */
+    text-align: left; /* 留言内容左对齐 */
+}
+
+.message-card {
+    background-color: #fff;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.message-sender {
+    font-weight: bold;
+    color: #388e3c;
+    margin-right: 5px;
+}
+
+.message-content {
+    margin: 0;
+}
+
+.message-timestamp {
+    display: block;
+    font-size: 0.8rem;
+    color: #999;
+    text-align: right;
+    margin-top: 5px;
+}
+
+/* 发送留言表单的样式 */
+.message-form {
+    display: flex;
+    align-items: center; /* 垂直居中输入框和按钮 */
+    gap: 10px;
+    margin-top: 30px;
+    width: 100%;
+    max-width: 600px; /* 限制表单的最大宽度，使其占据页面一半 */
+}
+
+.message-form textarea {
+    flex-grow: 1; /* 占据剩余空间，实现伸缩 */
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    resize: vertical;
+    font-family: inherit;
+    font-size: 1rem;
+}
+
+.message-form button {
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+    flex-shrink: 0;
+}
+
+.message-form button:hover {
+    background-color: #388e3c;
+}
+
+.loading-container {
+    text-align: center;
+    color: #777;
+    margin-top: 50px;
+}

@@ -1,0 +1,114 @@
+/* Form.css */
+
+/*
+  这个容器用于将表单居中。
+  - min-height: 100vh; 确保容器占据整个视口高度。
+  - display: flex; 启用弹性盒布局。
+  - justify-content: center; 在主轴（水平）上居中对齐子元素。
+  - align-items: center; 在交叉轴（垂直）上居中对齐子元素。
+*/
+.form-wrapper {
+    background-color: #f0fff0; /* 浅淡的薄荷绿 */
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* 整个表单容器的样式，只包含表单本身的样式 */
+.form-container {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 100, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    box-sizing: border-box;
+    border: 1px solid rgba(144, 238, 144, 0.5);
+    text-align: center;
+    backdrop-filter: blur(5px);
+}
+
+/* 标题样式 */
+.form-container h1 {
+    color: #388e3c;
+    margin-bottom: 2rem;
+    font-size: 2rem;
+    font-weight: 600;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* 输入框样式 */
+.form-input {
+    width: 100%;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    border: 2px solid #a5d6a7;
+    border-radius: 10px;
+    background-color: #e8f5e9;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+/* 输入框聚焦时的样式 */
+.form-input:focus {
+    outline: none;
+    border-color: #4caf50;
+    box-shadow: 0 0 8px rgba(76, 175, 80, 0.4);
+}
+
+/* 占位符样式 */
+.form-input::placeholder {
+    color: #7cb342;
+}
+
+/* 按钮样式 */
+.form-button {
+    width: 40%;
+    padding: 0.8rem;
+    background-color: #66bb6a;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 150, 0, 0.2);
+}
+
+/* 按钮悬停时的样式 */
+.form-button:hover {
+    background-color: #4caf50;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 150, 0, 0.3);
+}
+
+/* 按钮禁用时的样式 */
+.form-button:disabled {
+    background-color: #a5d6a7;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+/* 切换按钮容器的样式 */
+.switch-container {
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    color: #555;
+}
+
+/* 切换链接的样式 */
+.switch-link {
+    color: #4caf50; /* 绿色，与主题色匹配 */
+    cursor: pointer;
+    font-weight: bold;
+    transition: color 0.2s ease;
+}
+
+.switch-link:hover {
+    color: #388e3c; /* 悬停时颜色加深 */
+    text-decoration: underline;
+}

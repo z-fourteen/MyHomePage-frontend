@@ -1,0 +1,122 @@
+.page-root.main {
+    padding:0;
+    margin: 0;
+}
+.explore-container {
+    display:flex;
+    margin:0;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    background-image: url(../assets/tree.webp);
+
+    background-size:cover;        /* 按比例缩放，完整显示图片 */
+    background-repeat: no-repeat;    /* 不重复 */
+    background-position: center;     /* 居中 */
+  }
+  
+  
+  /* 分支按钮容器 (PC 端) */
+  .branch-buttons {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+  
+  /* 分支按钮样式 */
+  .branch-btn {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.6rem 1rem;
+    background: linear-gradient(135deg, rgba(220, 227, 214, 0.8), rgba(85, 133, 87, 0.8));
+    border-radius: 50px;
+    color: #fff;
+    text-decoration: none;
+    box-shadow: 0 0 8px rgba(85, 133, 87, 0.6);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: branch-sway 3s ease-in-out infinite;
+  }
+  
+  .branch-btn .icon {
+    font-size: 1.4rem;
+  }
+  
+  .branch-btn .cn {
+    font-size: 1rem;
+    font-weight: 600;
+  }
+  
+  .branch-btn .en {
+    font-size: 0.8rem;
+    opacity: 0.85;
+  }
+  
+  /* 呼吸光效 + 悬停放大 */
+  .branch-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(85, 133, 87, 0.8);
+  }
+  
+  /* 按钮摆动动画 */
+  @keyframes branch-sway {
+    0%, 100% { transform: rotate(0deg); }
+    50% { transform: rotate(3deg); }
+  }
+  
+  /* 按钮位置 (自己调整以适配树背景) */
+  .branch-0 { top: 20%; left: 30%; }
+  .branch-1 { top: 30%; left: 60%; }
+  .branch-2 { top: 46%; left: 35%; }
+  .branch-3 { top: 10%; left: 55%; }
+
+  
+  /* 移动端列表 */
+  .branch-list {
+    display: none;
+    padding: 2rem;
+  }
+  
+  .list-item {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background: rgba(220, 227, 214, 0.85);
+    border-radius: 12px;
+    text-decoration: none;
+    color: #355e3b;
+    box-shadow: 0 0 5px rgba(85, 133, 87, 0.3);
+  }
+  
+  .list-item:hover {
+    background: rgba(85, 133, 87, 0.85);
+    color: #fff;
+  }
+  
+  .list-icon {
+    font-size: 1.4rem;
+    margin-right: 10px;
+  }
+  
+  .list-item .cn {
+    font-weight: 600;
+  }
+  
+  .list-item .en {
+    font-size: 0.8rem;
+    opacity: 0.85;
+  }
+  
+  /* 响应式切换 */
+  @media (max-width: 768px) {
+    .branch-buttons {
+      display: none;
+    }
+    .branch-list {
+      display: block;
+    }
+  }
+  

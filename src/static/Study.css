@@ -1,0 +1,107 @@
+/* src/static/Study.css */
+
+/*
+  修正：study-container 样式
+  直接在这个容器上设置居中和最大宽度
+*/
+.study-container {
+  padding: 24px;
+  background-color: #f9fafb;
+  font-family: Arial, sans-serif;
+  min-height: 100vh;
+  width: 100%;
+  max-width: 1000px; /* 限制最大宽度以保持美观 */
+  margin: 0 auto; /* 核心：自动外边距实现水平居中 */
+}
+
+.page-title {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 16px;
+  color: #111827;
+  text-align: center;
+}
+
+/* 搜索框 */
+.search-input {
+  width: 100%;
+  max-width: 400px;
+  padding: 8px 12px;
+  margin: 0 auto 20px auto;
+  display: block;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.search-input:focus {
+  outline: none;
+  border-color: #2563eb;
+  box-shadow: 0 0 4px rgba(37, 99, 235, 0.4);
+}
+
+/* 没结果提示 */
+.no-results {
+  color: #6b7280;
+  font-style: italic;
+  text-align: center;
+}
+
+.semester-block {
+  margin-bottom: 32px;
+}
+
+.semester-title {
+  font-size: 22px;
+  font-weight: bold;
+  color: green;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.subject-block {
+  margin-bottom: 24px;
+}
+
+.subject-title {
+  font-size: 18px;
+  font-weight: 600;
+  color: rgb(115, 167, 144);
+  margin-bottom: 10px;
+}
+
+/* 文件列表改为两栏布局 */
+.file-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.file-item {
+  background: #fff;
+  border-radius: 8px;
+  padding: 12px 16px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+  transition: transform 0.2s;
+  text-align: left;
+}
+
+.file-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.file-link {
+  text-decoration: none;
+  color: rgb(172, 164, 109);
+  font-weight: 500;
+  display: block;
+  word-break: break-all;
+}
+
+.file-link:hover {
+  color: #2563eb;
+}
