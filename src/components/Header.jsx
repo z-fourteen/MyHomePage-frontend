@@ -33,8 +33,14 @@ export default function Header() {
             <li><Link to="/message">Messages</Link></li>
             {
               isAuthenticated ?
-              <button onClick={handleLogout}>退出登录</button> :
-              <button onClick={() => navigate("/login")}>登录</button>
+              (
+                <li>
+                  <button onClick={handleLogout} className="nav-button">
+                    Logout
+                  </button>
+                </li>
+              ) :
+                <li><Link to="/login">Login</Link></li>
             }
           </ul>
         </nav>

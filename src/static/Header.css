@@ -50,7 +50,7 @@
   }
   
   /* 链接样式 */
-  .site-header nav a {
+  .site-header nav a{
     text-decoration: none;
     font-weight: 500;
     color: #2e4d36;
@@ -60,11 +60,13 @@
   }
   
   /* Hover 动效 */
-  .site-header nav a:hover {
+  .site-header nav a:hover,
+  .site-header nav button.nav-button {
     background: rgba(79, 139, 92, 0.15); /* 半透明深绿 */
     color: #4f8b5c; /* 深一点的绿色 */
     transform: translateY(-2px);
   }
+
   
   /* 移动端（导航变成纵向序列） */
   @media (max-width: 768px) {
