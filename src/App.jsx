@@ -10,6 +10,7 @@ import LoginPage from "./pages/LoginPage";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Register from "./pages/RegisterPage";
 import PublishPage from "./pages/PublishPage";
+import SendMessagePage from "./pages/SendMessagePage";
 import "./index.css";
 
 function Logout(){
@@ -58,6 +59,14 @@ function App() {
             element={ // 新增路由
               <ProtectedRoute>
                 <PublishPage />
+              </ProtectedRoute>
+            } 
+          />
+          <Route 
+            path="/send-message"
+            element={ // 新增路由
+              <ProtectedRoute>
+                <SendMessagePage />
               </ProtectedRoute>
             } 
           />
