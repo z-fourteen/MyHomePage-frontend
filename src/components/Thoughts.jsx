@@ -1,7 +1,7 @@
 // src/components/Thoughts.jsx
 import React, { useState, useEffect, useRef } from "react";
 import ReactMarkdown from "react-markdown";
-import {useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { ACCESS_TOKEN } from "../constants";
 import api from "../api";
 import "../static/Thoughts.css";
@@ -10,37 +10,55 @@ export default function Thoughts() {
   const [thoughtsByYear, setThoughtsByYear] = useState({});
   const [expandedThoughts, setExpandedThoughts] = useState({});
   const [expandedYears, setExpandedYears] = useState({});
+  const [isSuperUser, setIsSuperUser] = useState(false); // 新增: 判断是否为超级用户
 
   const navigate = useNavigate();
-  const yearRefs = useRef({}); 
+  const yearRefs = useRef({});
 
   useEffect(() => {
     const fetchThoughts = async () => {
-        try {
-            const res = await api.get("/api/thoughts/");
-            const data = res.data;
-            // 按日期倒序
-            const sorted = data.sort((a, b) => new Date(b.date) - new Date(a.date));
-            // 按年份分组
-            const grouped = sorted.reduce((acc, thought) => {
-                const year = new Date(thought.date).getFullYear();
-                if (!acc[year]) acc[year] = [];
-                acc[year].push(thought);
-                return acc;
-            }, {});
-            setThoughtsByYear(grouped);
-            // 默认全部展开
-            const expandState = {};
-            Object.keys(grouped).forEach((y) => (expandState[y] = true));
-            setExpandedYears(expandState);
-        } catch (error) {
-            console.error("获取日志失败:", error);
-        }
+      try {
+        const res = await api.get("/api/thoughts/");
+        const data = res.data;
+        // 按日期倒序
+        const sorted = data.sort((a, b) => new Date(b.date) - new Date(a.date));
+        // 按年份分组
+        const grouped = sorted.reduce((acc, thought) => {
+          const year = new Date(thought.date).getFullYear();
+          if (!acc[year]) acc[year] = [];
+          acc[year].push(thought);
+          return acc;
+        }, {});
+        setThoughtsByYear(grouped);
+        // 默认全部展开
+        const expandState = {};
+        Object.keys(grouped).forEach((y) => (expandState[y] = true));
+        setExpandedYears(expandState);
+      } catch (error) {
+        console.error("获取日志失败:", error);
+      }
+    };
+
+    // 检查当前用户是否为超级用户
+    const fetchSuperUserStatus = async () => {
+      try {
+        // 假设后端有这个接口返回当前用户信息
+        const res = await api.get("/api/user/current/", {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem(ACCESS_TOKEN)}`,
+          },
+        });
+        // 返回示例: { is_superuser: true }
+        setIsSuperUser(!!res.data.is_superuser);
+      } catch (error) {
+        console.error("获取用户信息失败:", error);
+        setIsSuperUser(false);
+      }
     };
 
     fetchThoughts();
+    fetchSuperUserStatus();
   }, []);
-
 
   const toggleThought = (id) => {
     setExpandedThoughts((prev) => ({
@@ -57,7 +75,7 @@ export default function Thoughts() {
   };
 
   const handlePublish = () => {
-    navigate("/publish"); // 新增: 导航到新页面
+    navigate("/publish");
   };
 
   const scrollToYear = (year) => {
@@ -86,9 +104,12 @@ export default function Thoughts() {
         <p className="page-description">点击年份或标题以展开/收起内容。</p>
 
         <div style={{ textAlign: "center", marginBottom: "20px" }}>
-              <button onClick={handlePublish} className="publish-button">
+          {/* 只有超级用户才显示发布日志按钮 */}
+          {isSuperUser && (
+            <button onClick={handlePublish} className="publish-button">
               发布日志
             </button>
+          )}
         </div>
 
         {years.map((year) => (
