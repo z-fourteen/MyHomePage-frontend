@@ -21,7 +21,7 @@ export default function ThoughtCreateForm(){
                 content,
                 is_public: isPublic,
             };
-            await api.post("/api/thought-entries/", newThought);
+            await api.post("/api/thoughts/", newThought);
             navigate("/thoughts"); // 发布成功后跳转回日志列表页面
         } catch (error) {
             console.error("发布日志失败:", error);

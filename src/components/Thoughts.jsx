@@ -18,7 +18,7 @@ export default function Thoughts() {
   useEffect(() => {
     const fetchThoughts = async () => {
         try {
-            const res = await api.get("/api/mythoughts/");
+            const res = await api.get("/api/thoughts/");
             const data = res.data;
             // 按日期倒序
             const sorted = data.sort((a, b) => new Date(b.date) - new Date(a.date));
