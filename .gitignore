@@ -6,10 +6,6 @@
 # testing
 /coverage
 
-# production
-/build
-/dist
-/vite-dist
 
 # misc
 .DS_Store
