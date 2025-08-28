@@ -18,6 +18,9 @@
 
 /* 整个表单容器的样式，只包含表单本身的样式 */
 .form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     background: rgba(255, 255, 255, 0.9);
     padding: 2.5rem;
     border-radius: 20px;

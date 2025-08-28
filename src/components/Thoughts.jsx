@@ -2,7 +2,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import ReactMarkdown from "react-markdown";
 import {useNavigate} from "react-router-dom";
-import {jwtDecode} from "jwt-decode";
 import { ACCESS_TOKEN } from "../constants";
 import api from "../api";
 import "../static/Thoughts.css";
@@ -11,7 +10,7 @@ export default function Thoughts() {
   const [thoughtsByYear, setThoughtsByYear] = useState({});
   const [expandedThoughts, setExpandedThoughts] = useState({});
   const [expandedYears, setExpandedYears] = useState({});
-  const [isAdmin, setIsAdmin] = useState(false);
+
   const navigate = useNavigate();
   const yearRefs = useRef({}); 
 
@@ -42,24 +41,6 @@ export default function Thoughts() {
     fetchThoughts();
   }, []);
 
-  useEffect(() => {
-    const token = localStorage.getItem("ACCESS_TOKEN"); // 注意 key 要正确
-    if (token) {
-      try {
-        const decoded = jwtDecode(token);
-        if (decoded?.username === "admin") {
-          setIsAdmin(true);
-        } else {
-          setIsAdmin(false);
-        }
-      } catch (error) {
-        console.error("解码 JWT 失败:", error);
-        setIsAdmin(false);
-      }
-    } else {
-      setIsAdmin(false);
-    }
-  }, []); // 只在组件挂载时运行
 
   const toggleThought = (id) => {
     setExpandedThoughts((prev) => ({
@@ -104,13 +85,11 @@ export default function Thoughts() {
         <h1 className="page-title">成长碎碎念归档</h1>
         <p className="page-description">点击年份或标题以展开/收起内容。</p>
 
-        {isAdmin && ( // 新增: 条件渲染发布按钮
-          <div style={{ textAlign: "center", marginBottom: "20px" }}>
+        <div style={{ textAlign: "center", marginBottom: "20px" }}>
               <button onClick={handlePublish} className="publish-button">
               发布日志
             </button>
-          </div>
-        )}
+        </div>
 
         {years.map((year) => (
           <div

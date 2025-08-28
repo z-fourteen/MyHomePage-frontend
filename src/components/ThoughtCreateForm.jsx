@@ -32,39 +32,41 @@ export default function ThoughtCreateForm(){
     };
 
     return (
-        <form onSubmit={handleSubmit} className="form-container">
-            <h1>发布新日志</h1>
-            <input 
-                className="form-input"
-                type="text" 
-                placeholder="日志标题" 
-                value={title} 
-                onChange={(e) => setTitle(e.target.value)} 
-                required
-            /> 
-            <textarea 
-                className="form-input"
-                placeholder="写下你的想法..." 
-                value={content} 
-                onChange={(e) => setContent(e.target.value)} 
-                rows="10"
-                required
-            />
-            <div className="checkbox-container">
-                <input
-                    type="checkbox"
-                    checked={isPublic}
-                    onChange={(e) => setIsPublic(e.target.checked)}
+        <div className="form-wrapper">
+            <form onSubmit={handleSubmit} className="form-container">
+                <h1>发布新日志</h1>
+                <input 
+                    className="form-input"
+                    type="text" 
+                    placeholder="日志标题" 
+                    value={title} 
+                    onChange={(e) => setTitle(e.target.value)} 
+                    required
+                /> 
+                <textarea 
+                    className="form-input"
+                    placeholder="写下你的想法..." 
+                    value={content} 
+                    onChange={(e) => setContent(e.target.value)} 
+                    rows="10"
+                    required
                 />
-                <label>公开</label>
-            </div>
-            <button
-                className="form-button" 
-                type="submit" 
-                disabled={loading}
-            >
-                {loading ? "发布中..." : "发布日志"}
-            </button>         
-        </form>
+                <div className="checkbox-container">
+                    <input
+                        type="checkbox"
+                        checked={isPublic}
+                        onChange={(e) => setIsPublic(e.target.checked)}
+                    />
+                    <label>公开</label>
+                </div>
+                <button
+                    className="form-button" 
+                    type="submit" 
+                    disabled={loading}
+                >
+                    {loading ? "发布中..." : "发布日志"}
+                </button>         
+            </form>
+        </div>   
     );
 }
