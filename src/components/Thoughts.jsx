@@ -133,8 +133,8 @@ export default function Thoughts() {
                       {thought.title}
                     </h3>
                     <p className="thought-meta">
-                      <span>日期: {thought.date}</span>
-                      <span>作者: {thought.author_name}</span>
+                      <span className="small-des">日期: {thought.date}</span>
+                      <span className="small-des">作者: {thought.author_name}</span>
                     </p>
                     <div className="thought-content">
                       <ReactMarkdown>
